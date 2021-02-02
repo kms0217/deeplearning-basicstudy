@@ -1,5 +1,3 @@
-# Pytorch_basic
-
 # Vector Matrix Tensor
 
 - 2D Tensor
@@ -15,7 +13,7 @@ NLP에서 생각해보면 width * height 사각형이 하나의 문장이라고 
 
 ---
 
-# Pytorch
+# [Pytorch_basic](https://github.com/xcvdv/deeplearning-basicstudy/blob/main/PART1/pytorch_basic.ipynb)
 
 PyTorch는 numpy와 매우 유사하고 호환성도 높다.
 
