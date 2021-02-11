@@ -2,10 +2,11 @@
 
 - 2D Tensor
 
-    $`|t| = (batch size, dim)`$
+    `|t| = (batch size, dim)`
 
 - 3D Tensor (Typical computer vision)
-$`|t| = (batch size, width, height)`$
+
+    `|t| = (batch size, width, height)`
 
 ![image/tensor.png](image/tensor.png)
 
@@ -166,9 +167,9 @@ print(x)
 
 pytorch의 optimizer를 사용한 코드와 사용하지 않은 두가지 코드를 작성하였다.
 
-$`cost(W) = \frac{1}{m}∑(H(Wx^{(i)}-y^{(i)})^2`$
+![image/math1.png](image/math1.png)
 
-$`\nabla{W} = \frac{\partial{cost}}{\partial{W}}=\frac{2}{m}\Sigma(Wx^{(i)}-y^{(i)})x^{(i)}`$
+![image/math2.png](image/math2.png)
 
 학습을 통해 Cost가 줄어들며 W값이 구해지는것을 확인할 수 있다.
 
@@ -206,7 +207,7 @@ gradient를 계산하는 backward(), 계산된 gradient로 Parameter를 업데�
   
     x의 정부가 3개이므로 Weight를 3개 가지는 함수로 표현해야한다.
 
-    $`H(x) = w_{1}x_{1}+w_{2}x_{2}+w_{3}x_{3}+b`$
+    ![image/math3.png](image/math3.png)
     ```python
     hypothesis = x1_train * w1 + x2_train * w2 + x3_train * w3 + b
     ```
@@ -284,15 +285,12 @@ Dataloader = DataLoader(
 
     W가 주어졌을 때 어떤한 샘플 X가 1이될 확률 P(X=1; W)
 
-    $$```H(X) = \frac{1}{1 + e^{-XW}}```$$
+    ![image/math4.png](image/math4.png)
 
 - cost
 
-    $$```cost(W)=\frac{1}{m}\sum c(H(x),y)\\c(H(x),y) =\begin{cases}
-    -log(H(x)) &\text{if } y=1 \\
-    -log(1-H(x)) &\text{if } y=0
-    \end{cases} \\cost(W)=-\frac{1}{m}\sum ylog(H(x))+(1-y)(log(1-H(x))```$$
-
+    ![image/math5.png](image/math5.png)
+    
     cost는 예측값과 실제값의 차이가 작으면 작아지고, 예측값과 실제값의 차이가 크면 커지는 함수이다. c(H(x),y)가 왜 저렇게 작성되었는지 각각 case에 따라 생각해보면 이해하기가 쉽다. 이러한 함수를 BCE(Binary Cross Entropy)라고하고 이전 선형회귀에서 사용했던 Cost는 MSE(Mean Squared Error)라고 한다.
 
 - 실제 output이 1일때
@@ -348,7 +346,7 @@ F.binary_cross_entropy(hypothesis, y_train)
 
 ### Softmax
 
-$$P(class=i) = \frac{e^i}{\sum e^i}$$
+![image/math6.png](image/math6.png)
 
 Softmax함수는 출력값에 대한 정규화를 해주는 함수이다. 예를들어 특정 사진을 보고 고양이, 강아지, 햄스터인지를 확률적으로 나타낼 때 고양이(65%), 강아지(30%), 햄스터(5%) 처럼 나타내준다.
 
@@ -369,7 +367,7 @@ F.softmax(z, dim=0)
 
 cross entropy는 두개의 확률분포가 주어졌을 때 두 확률분포가 얼마나 비슷한지를 나타낸다.
 
-$$H(P,Q)=-𝔼_{x\text{\textasciitilde}P(x)}[logQ(x)]=-\sum_{x\in X}P(x)logQ(x)$$
+![image/math7.png](image/math7.png)
 
 위의 식을 살펴보면 확률분포 P에서 x를 샘플링하고 샘플링한 x를 Q에 넣어 log를 씌운값의 평균을 구하는것을 알 수 있다. 
 
@@ -383,9 +381,9 @@ $$H(P,Q)=-𝔼_{x\text{\textasciitilde}P(x)}[logQ(x)]=-\sum_{x\in X}P(x)logQ(x)$
 
 ### Cross entropy Loss
 
-$$L = \frac{1}{N}\sum -ylog(\hat{y})$$
+![image/math8.png](image/math8.png)
 
-위의 식에서 y는 P(x) $,\hat{y}$은 Q(x)로 볼 수 있다.  혹은 $\hat{y}$를 특정 $\theta$가 주어졌을 때의 확률분포 $P_{\theta}(x)$로 볼 수 있다.
+위의 식에서 y는 P(x) ,ŷ은 Q(x)로 볼 수 있다.  혹은 ŷ를 특정 θ가 주어졌을 때의 확률분포 $P_{θ}(x)$로 볼 수 있다.
 
 ---
 

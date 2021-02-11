@@ -6,9 +6,9 @@
 |PART|강의수강|학습정리|
 |:-:|:-:|:-:|
 |Machine Learning & PyTorch Basic|O|O|
-|Neural Network|x|x|
-|Convolutional Neural Network|x|x|
-|Recurrent Neural Network|x|x|
+|Neural Network|O|O|
+|Convolutional Neural Network|O|O|
+|Recurrent Neural Network|O|O|
 
 ---
 모두의 딥러닝 시즌2 : https://deeplearningzerotoall.github.io/season2/
