@@ -31,9 +31,9 @@
 
 수식으로 직접 손으로 풀어보면 아래와 같다.
 
-![image/01.png](image/01.png)
+![image/01.PNG](image/01.PNG)
 
-![image/02.png](image/02.png)
+![image/02.PNG](image/02.PNG)
 
 ---
 
